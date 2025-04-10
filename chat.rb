@@ -1,10 +1,10 @@
 require "openai"
 require "dotenv/load"
 
-client = OpenAI::Client.new(access_token: ENV.fetch("OPENAI_KEY"))
+client = OpenAI::Client.new(access_token: ENV.fetch("OPENAI_API_KEY"))
 
 list_of_messages = [ 
-  { :role => "system", :content => "Your are a helpful assistant."}
+  { :role => "system", :content => "You are a helpful assistant."}
 ]
 
 #define empty variable
@@ -35,13 +35,17 @@ while user_request != "bye"
   list_of_messages.push({ :role => "assistant", :content => next_message.to_s})
 
   #print message
+  puts
   puts next_message
   puts
   puts "-"*50
+  puts
+  puts "Ask anything..."
+  puts
 end  
 
 
-puts "Goodbye!"
+puts "Goodbye! Let me know if I can help you with something else."
 
 
 
