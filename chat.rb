@@ -20,6 +20,12 @@ puts
 while user_request != "bye"
   #get user request
   user_request = gets.chomp
+  
+  # exit loop immediately if user types bye
+
+  if user_request == "bye"
+    break
+  end
 
   #push request to list of messages which is then fed to API
   list_of_messages.push ({:role => "user", :content => user_request.to_s})
@@ -41,6 +47,8 @@ while user_request != "bye"
   puts "-"*50
   puts
   puts "Ask anything..."
+  puts
+  puts "-"*50
   puts
 end  
 
